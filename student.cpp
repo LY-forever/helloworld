@@ -1,4 +1,5 @@
 ﻿#include"student.h"
+int Student::count=0;
 Student::Student()
 {
 	name=NULL;
@@ -16,6 +17,7 @@ Student::Student(char *na,char *id,char *num,char *spec,int ag)
 	strcpy(number,num);
 	strcpy(speciality,spec);
 	age=ag;
+	count++;
 }
 
 Student::Student(const Student &per)
@@ -29,17 +31,21 @@ Student::Student(const Student &per)
 	strcpy(number,per.number);
 	strcpy(speciality,per.speciality);
 	age=per.age;
+	count++;
 }
 
 Student::~Student()
 {
 	if(name)
 	{
-		delete []name;
+		cout<<"disCon"<<endl;
+		if(name)
+			delete []name;
+		cout--;
 	}
 }
 
-char *Student::GetName()
+char *Student::GetName()const
 {
 	return name;
 }
@@ -90,7 +96,24 @@ void Student::Input()
 	cin>>speciality;
 	cout<<"输入学  号:";
 	cin>>number;
+	count++;					//adding this word,the number of student add when input one
 }
 
+void Student::Insert()			//adding(second)
+{
+	if(!age)					
+		Input();
+}
+
+void Student::Delete()			//adding(second)
+{
+	age=0;
+	cout--;
+}
+
+int Student::GetCount()
+{
+		return count;
+}
 	
 
