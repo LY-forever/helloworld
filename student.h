@@ -1,4 +1,4 @@
-#ifndef _STUDENT
+﻿#ifndef _STUDENT
 #define _STUDENT
 #include<iostream>
 #include<string>
@@ -8,8 +8,8 @@ class Student
 {
 	char *name;				//name
 	char ID[19];			//identity card
-	char number[10];		//ѧ��
-	char speciality[20];    //רҵ
+	char number[10];		//学号
+	char speciality[20];    //专业
 	int age;				//age
 public:
 	Student();
@@ -21,7 +21,7 @@ public:
 	char* GetNumber();
 	char* GetSpec();
 	int GetAge();
-	void Display();			//��ʾѧ����Ϣ
+	void Display();			//显示学生信息
 	void Input();			//input the information of student
 };
 #endif

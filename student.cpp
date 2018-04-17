@@ -1,4 +1,4 @@
-#include"student.h"
+ï»¿#include"student.h"
 Student::Student()
 {
 	name=NULL;
@@ -9,7 +9,7 @@ Student::Student(char *na,char *id,char *num,char *spec,int ag)
 {
 	if(na)
 	{
-		name=new char[strlen(na)+1];								//±ÜÃâÇ³¿½±´
+		name=new char[strlen(na)+1];								//é¿å…æµ…æ‹·è´
 		strcpy(name,na);
 	}
 	strcpy(ID,id);
@@ -66,29 +66,29 @@ char* Student::GetNumber()
 
 void Student::Display()
 {
-	cout<<"ĞÕÃû:"<<name<<endl;
-	cout<<"Éí·İÖ¤:"<<ID<<endl;
-	cout<<"Ñ§ºÅ:"<<number<<endl;
-	cout<<"×¨Òµ:"<<speciality<<endl;
-	cout<<"ÄêÁä:"<<age<<endl<<endl;
+	cout<<"å§“å:"<<name<<endl;
+	cout<<"èº«ä»½è¯:"<<ID<<endl;
+	cout<<"å­¦å·:"<<number<<endl;
+	cout<<"ä¸“ä¸š:"<<speciality<<endl;
+	cout<<"å¹´é¾„:"<<age<<endl<<endl;
 }
 
 void Student::Input()
 {
 	char na[10];
-	cout<<"ÊäÈëĞÕ  Ãû:";
+	cout<<"è¾“å…¥å§“  å:";
 	cin>>na;
 	if(name)
 		delete []name;
 	name=new char[strlen(na)+1];
 	strcpy(name,na);
-	cout<<"ÊäÈëÉí·İÖ¤:";
+	cout<<"è¾“å…¥èº«ä»½è¯:";
 	cin>>ID;
-	cout<<"ÊäÈëÄê  Áä:";
+	cout<<"è¾“å…¥å¹´  é¾„:";
 	cin>>age;
-	cout<<"ÊäÈë×¨  Òµ:";
+	cout<<"è¾“å…¥ä¸“  ä¸š:";
 	cin>>speciality;
-	cout<<"ÊäÈëÑ§  ºÅ:";
+	cout<<"è¾“å…¥å­¦  å·:";
 	cin>>number;
 }
 

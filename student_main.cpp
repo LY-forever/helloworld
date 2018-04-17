@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 #include "student.h"
 const int N=10;
@@ -9,8 +9,8 @@ int SearchStu(Student *array,char *na);
 int count=0;
 int main()
 {
-	Student array[N];				//¶¨ÒåÑ§ÉúÊı×é
-	int choice;						//¶ÁÈëÑ¡Ïî
+	Student array[N];				//å®šä¹‰å­¦ç”Ÿæ•°ç»„
+	int choice;						//è¯»å…¥é€‰é¡¹
 	do
 	{
 		menu();
@@ -27,7 +27,7 @@ int main()
 					   int i;
 					   i=SearchStu(array,na);
 					   if(i==N)
-						   cout<<"²éÎŞ´ËÈË"<<endl;
+						   cout<<"æŸ¥æ— æ­¤äºº"<<endl;
 					   else
 						   array[i].Display();
 					   break;
@@ -41,15 +41,15 @@ int main()
 
 void menu()
 {
-	cout<<"*********1.Â¼ÈëĞÅÏ¢*********"<<endl;
-	cout<<"*********2.²éÑ¯ĞÅÏ¢*********"<<endl;
-	cout<<"*********3.ä¯ÀÀĞÅÏ¢*********"<<endl;
-	cout<<"*********0.ÍË    ³ö*********"<<endl;
+	cout<<"*********1.å½•å…¥ä¿¡æ¯*********"<<endl;
+	cout<<"*********2.æŸ¥è¯¢ä¿¡æ¯*********"<<endl;
+	cout<<"*********3.æµè§ˆä¿¡æ¯*********"<<endl;
+	cout<<"*********0.é€€    å‡º*********"<<endl;
 }
 
 void OutputStu(Student *array)
 {
-	cout<<"Ñ§Éú×ÜÈËÊı="<<count<<endl;
+	cout<<"å­¦ç”Ÿæ€»äººæ•°="<<count<<endl;
 	for(int i=0;i<count;i++)
 		array[i].Display();
 }
@@ -70,7 +70,7 @@ void InputStu(Student *array)
 	{
 		array[count].Input();
 		count++;
-		cout<<"¼ÌĞøÊäÈëÂğ£¿(Y or N)"<<endl;
+		cout<<"ç»§ç»­è¾“å…¥å—ï¼Ÿ(Y or N)"<<endl;
 		cin>>ch;
 	}while(ch=='Y');
 }
