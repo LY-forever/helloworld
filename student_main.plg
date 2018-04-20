@@ -1,0 +1,36 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: student_main - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\ADMINI~1\AppData\Local\Temp\RSPF5E2.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/student_main.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\Documents\GitHub\helloworld\student_main.cpp"
+]
+Creating command line "cl.exe @C:\Users\ADMINI~1\AppData\Local\Temp\RSPF5E2.tmp" 
+<h3>Output Window</h3>
+Compiling...
+student_main.cpp
+d:\documents\github\helloworld\student_main.cpp(1) : error C2018: unknown character '0xef'
+d:\documents\github\helloworld\student_main.cpp(1) : error C2018: unknown character '0xbb'
+d:\documents\github\helloworld\student_main.cpp(1) : error C2018: unknown character '0xbf'
+d:\documents\github\helloworld\student_main.cpp(1) : error C2014: preprocessor command must start as first nonwhite space
+d:\documents\github\helloworld\student_main.cpp(2) : error C2871: 'std' : does not exist or is not a namespace
+d:\documents\github\helloworld\student.h(1) : error C2018: unknown character '0xef'
+d:\documents\github\helloworld\student.h(1) : error C2018: unknown character '0xbb'
+d:\documents\github\helloworld\student.h(1) : error C2018: unknown character '0xbf'
+d:\documents\github\helloworld\student.h(1) : error C2014: preprocessor command must start as first nonwhite space
+d:\documents\github\helloworld\student.h(31) : fatal error C1020: unexpected #endif
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+student_main.obj - 10 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
