@@ -1,52 +1,43 @@
 ﻿#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
 #include "student.h"
-const int N=10;
 void menu();
-void InputStu(Student *array);
-void OutputStu(const Student *array);
-int SearchStu(const Student *array,char *na);
-bool InsertStu(Student *array);
-bool DeleteStu(Student *array,char *na);
+void InputStu(vector<Student>& stu_vec);
+void OutputStu(vector<Student>&stu_vec);
 int main()
 {
-	Student array[N];				//定义学生数组
+	vector<Student> stu_vec;
 	int choice;						//读入选项
-	char na[20];
+	string na;
 	do
 	{
 		menu();
 		cout<<"Please input your choice:";
 		cin>>choice;
-		if(choice>=0&&choice<=5)
+		if(choice>=0&&choice<=3)
 		{
 			switch(choice)
 			{
-				case 1:InputStu(array);break;
+				case 1:InputStu(stu_vec);break;
 				case 2:cout<<"Input the name searched:";
-					   char na[20];
-					   cin>>na;
-					   int i;
-					   i=SearchStu(array,na);
-					   if(i==N)
+					   cin.get();
+					   getline(cin,na);
+					   cin.get();
+					   vector<Student>::iterator p;
+					   for(p=stu_vec.begin();p!=stu_vec.end();p++)
+					   {
+							if(((*p).GetName()).compare(na)==0)
+							{
+								(*p).Display();
+								break;
+							}
+					   }
+					   if(p==stu_vec.end())
 						   cout<<"查无此人"<<endl;
-					   else
-						   array[i].Display();
 					   break;
-				case 3:OutputStu(array);break;
-				case 4:if (InsertStu(array))
-							cout<<"成功插入一条记录"<<endl;
-						else
-							cout<<"插入失败"<<endl;
-						break;
-				case 5:
-					cout<<"Input the name deleted:"<<endl;
-					cin>>na;
-					if(DeleteStu(array,na))
-						cout<<"delete a record successly."<<endl;
-					else
-						cout<<"delete failurely"<<endl;
-					break;
+				case 3:OutputStu(stu_vec);break;
 				default:break;
 			}
 		}
@@ -59,72 +50,31 @@ void menu()
 	cout<<"*********1.录入信息*********"<<endl;
 	cout<<"*********2.查询信息*********"<<endl;
 	cout<<"*********3.浏览信息*********"<<endl;
-	cout<<"*********4.插入信息*********"<<endl;     //新增菜单(second)
-	cout<<"*********5.删除信息*********"<<endl;		//same up
 	cout<<"*********0.退    出*********"<<endl;
 }
 
-void OutputStu(const Student *array)
+void OutputStu(vector<Student> & stu_vec)			//输出对象数组元素
 {
-	cout<<"学生总人数="<<Student::GetCount<<endl;
-	for(int i=0;i<N;i++)
-		if(array[i].GetAge())
-			array[i].Display();
+	int count=0;
+	vector<Student>::const_iterator p;
+	for(p=stu_vec.begin();p!stu_vec.end();p++)
+	{
+		(*p).Display();
+		count++;
+	}
+	cout<<"学生总人数:"<<count<<endl;
 }
 
-int SearchStu(const Student *array,char *na)
-{
-	int i,j=N;
-	for(i=0;i<N;i++)
-		if(array.GetAge())
-			if(strcmp(array[i].GetName(),na)==0)
-			{
-				j=i;
-				break;
-			}
-	return j;
-}
-
-void InputStu(Student *array)
+void InputStu(vector<Student>& stu_vec)				//输入对象数组元素
 {
 	char ch;
+	Student x;
 	do
 	{
-		if(Student::GetCount()==N)
-			cout<<"人数已满，无法继续录入"<<endl;
-		if(!array[i].GetAge())
-			array[i++].Input();
-		cour<<"继续输入吗?(Y or N)"<<endl;
-		cin>>ch;
+		x.Input();
+		stu_vec.push_back(x);
+		cout<<"继续输入吗?(Y or N)"<<endl;
+		cin.get();
+		cin.get(ch);
 	}while(ch=='Y');
-}
-
-
-bool InsertStu(Student *array)
-{
-	if(Student::GetCount()==N)
-	{
-		cout<<"人数已满，无法插入记录！"<<endl;
-		return false;
-	}
-	for(int i=0;array[i].GetAge();i++)
-		array[i].Insert();
-	return true;
-}
-
-bool DeleteStu(Student *array,char *na)
-{
-	if(Student::GetCount()==0)
-	{
-		cout<<"没有记录，无法删除"<<endl;
-		return 0;
-	}
-	int i=SearchStu(array,na);
-	if(i==N)
-	{
-		cout<<"查无此人，无法删除1"<<endl;
-		return false;
-	}
-	array[i].Delete();
-	return true;
 }
